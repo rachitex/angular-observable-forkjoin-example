@@ -1,0 +1,32 @@
+<mat-card>
+    <form [formGroup]="form" (submit)="add()">
+      <mat-form-field>
+            <input matInput type="number" formControlName="employeeId" placeholder="Enter Employee Id"/>
+      </mat-form-field><br/><br/>
+      <mat-form-field>
+            <input matInput formControlName="employeeName" placeholder="Enter Employee Name"/>
+      </mat-form-field><br/><br/>
+      <mat-form-field>
+            <input  matInput type="number" formControlName="resourceQuantity" placeholder="Enter Resource Quantity"/> 
+        </mat-form-field><br/><br/>
+           <div>
+                <ul formArrayName="resources">
+                    <li *ngFor="let item of resources.controls; let i = index">
+                      <span [formGroupName]="i">
+                        <input  matInput type="number" placeholder="Enter Resource Number"
+                        formControlName="id"/> 
+                      </span>
+                    </li>       
+                </ul>
+            </div>
+        <div fxLayout>
+            <div>
+                <button
+                  mat-raised-button
+                  color="accent"
+                  [disabled]="form.invalid">Save
+                </button>
+            </div>
+        </div>
+    </form>
+</mat-card>
