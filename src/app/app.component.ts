@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { forkJoin } from 'rxjs';
+import { EmployeesService } from './services/employees.service.ts';
+import { ResourcesService } from './services/resources.service.ts';
+import { Employee } from './models/employee.model.ts';
+import { Resource } from './models/resource.model.ts';
+import { MessagesService } from './services/messages-service/messages.service.ts';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
@@ -10,9 +17,11 @@ export class AppComponent implements OnInit {
   form: FormGroup;
   // resourceQuantity: any;
 
-  constructor() {
+  constructor(
+    private employeesService: EmployeesService,
+    private resourcesService: ResourcesService
+  ) {}
 
-  }
   ngOnInit() {
     this.form = new FormGroup({
       'employeeId': new FormControl(null, { validators: [Validators.required] }),
@@ -40,7 +49,36 @@ export class AppComponent implements OnInit {
   }
 
   add() {
-    console.log(this.form.value);
+    this.employeesService
+    .createEmployee(this.form.value as Employee)
+    .subscribe(
+        employee=> {
+            console.log(employee);
+        },
+        (err: HttpErrorResponse) => {
+            this.messagesService.openDialog('Error', 'Invalid Employee. Try Again!');
+        }
+    );
+    const resources: any = {};
+    const employeeId: any = {};
+    let wholeData: any = [];
+    function makeArray(resourceNumber, id) {
+        resources.push(resourceNumber);
+        for(var i = 0; i < this.resourceNumber.length; i++) {
+            employeeId.push(id);
+        }
+    }
+    wholeData = new makeArray(this.resourceNumbers, employeeId);
+    this.resourceNumbersService
+    .createResourceNumber(wholeData as Resource)
+    .subscribe(
+        resourceNumber => {
+            console.log(resourceNumber);
+        },
+        (err: HttpErrorResponse) => {
+            this.messagesService.openDialog('Error', 'Invalid Resource Number. Try Again!');
+        }
+    );
   }
 
   get resourceQuantity() {
