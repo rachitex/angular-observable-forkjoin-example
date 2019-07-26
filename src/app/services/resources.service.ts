@@ -16,7 +16,7 @@ export class ResourcesService {
         return this.http.get<Resource[]>(this.url);
     }
 
-    createRerource(resource: Resource): Observable<Resource> {
+    createResource(resource: Resource): Observable<Resource> {
         return this.http.post<Resource>(this.url, resource, httpOptions);
     }
 }

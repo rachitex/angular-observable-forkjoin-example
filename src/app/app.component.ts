@@ -69,9 +69,9 @@ export class AppComponent implements OnInit {
             employeeId.push(id);
         }
     }
-    wholeData = new makeArray(this.resourceNumbers, employeeId);
-    this.resourceNumbersService
-    .createResourceNumber(wholeData as Resource)
+    wholeData = new makeArray(this.resources, employeeId);
+    this.resourcesService
+    .createResource(wholeData as Resource)
     .subscribe(
         resourceNumber => {
             console.log(resourceNumber);
