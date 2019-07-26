@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
-import { EmployeesService } from './services/employees.service.ts';
-import { ResourcesService } from './services/resources.service.ts';
-import { Employee } from './models/employee.model.ts';
-import { Resource } from './models/resource.model.ts';
-import { MessagesService } from './services/messages-service/messages.service.ts';
+import { EmployeesService } from './services/employees.service';
+import { ResourcesService } from './services/resources.service';
+import { Employee } from './models/employee.model';
+import { Resource } from './models/resource.model';
+import { MessagesService } from './services/messages-service/messages.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
