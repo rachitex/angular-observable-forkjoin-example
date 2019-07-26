@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private employeesService: EmployeesService,
-    private resourcesService: ResourcesService
+    private resourcesService: ResourcesService,
+    private messagesService: MessagesService
   ) {}
 
   ngOnInit() {
