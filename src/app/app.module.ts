@@ -12,10 +12,14 @@ import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './services/messages-services/messages.component';
+import { MessagesComponent } from './services/messages-service/messages.component';
 import { MessagesService } from './services/messages-service/messages.service';
 
 @NgModule({
+  declarations: [ 
+    AppComponent,
+    MessagesComponent
+  ],
   imports:      [ 
     BrowserModule, 
     FormsModule,
@@ -30,10 +34,6 @@ import { MessagesService } from './services/messages-service/messages.service';
     MessagesService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
-  ],
-  declarations: [ 
-    AppComponent,
-    MessagesComponent
   ],
   bootstrap:    [ AppComponent ]
 })
