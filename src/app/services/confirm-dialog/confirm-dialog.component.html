@@ -1,0 +1,7 @@
+<h1 matDialogTitle>{{title}}</h1>
+<mat-dialog-content>{{message}}</mat-dialog-content>
+<div matDialogActions fxLayoutAlign="space-around center">
+  <button matDialogClose mat-raised-button (click)="dialogRef.close(true)" color="primary">Confirm</button>
+
+  <button matDialogClose mat-raised-button (click)="dialogRef.close()" color="warn">Cancel</button>
+</div>

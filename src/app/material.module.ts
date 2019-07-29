@@ -11,7 +11,8 @@ import {
     MatSortModule,
     MatTooltipModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 
@@ -29,7 +30,8 @@ import {CdkTableModule} from '@angular/cdk/table';
         MatTooltipModule,
         MatSelectModule,
         MatTableModule,
-        CdkTableModule
+        CdkTableModule,  
+        MatDialogModule,
     ],
     exports: [
         MatIconModule,
@@ -44,7 +46,8 @@ import {CdkTableModule} from '@angular/cdk/table';
         MatTooltipModule,
         MatSelectModule,
         MatTableModule,
-        CdkTableModule
+        CdkTableModule,
+        MatDialogModule,
     ]
 })
 export class MaterialModule {}

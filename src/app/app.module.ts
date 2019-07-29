@@ -12,13 +12,18 @@ import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+
 import { MessagesComponent } from './services/messages-service/messages.component';
 import { MessagesService } from './services/messages-service/messages.service';
+
+import { ConfirmDialogService } from './services/confirm-dialog/confirm-dialog.service';
+import { ConfirmDialogComponent } from './services/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [ 
     AppComponent,
-    MessagesComponent
+    MessagesComponent,
+    ConfirmDialogComponent
   ],
   imports:      [ 
     BrowserModule, 
@@ -31,12 +36,14 @@ import { MessagesService } from './services/messages-service/messages.service';
     InMemoryWebApiModule.forRoot(DataService)
   ],
   providers: [
+    ConfirmDialogService,
     MessagesService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ],
   bootstrap:    [ AppComponent ],
   entryComponents: [
+    ConfirmDialogComponent,
     MessagesComponent
   ]
 })
