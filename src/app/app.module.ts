@@ -35,6 +35,9 @@ import { MessagesService } from './services/messages-service/messages.service';
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  entryComponents: [
+    MessagesComponent
+  ]
 })
 export class AppModule { }

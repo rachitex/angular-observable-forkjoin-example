@@ -1,5 +1,3 @@
-
-
 import { Observable } from 'rxjs';
 import { MessagesComponent } from './messages.component';
 import { MatDialogRef, MatDialog } from '@angular/material';
